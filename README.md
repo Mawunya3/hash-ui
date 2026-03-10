@@ -226,6 +226,8 @@ MIT
 
 ---
 
+
+
 README.md
 # #UI — hash-ui
 
@@ -240,6 +242,10 @@ README.md
 It provides composable components like layout primitives, forms, overlays, navigation, and marketing blocks to help developers build modern UIs faster while still retaining full control over Tailwind styling.
 
 ---
+
+
+
+
 
 # Component Preview
 
