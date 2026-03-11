@@ -1,19 +1,28 @@
 {
   "name": "@thetinycode/hash-ui",
-  "version": "1.1.0",
+  "version": "1.1.12",
   "description": "#-UI - reusable React UI primitives built with Tailwind CSS",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": ["dist/index.d.ts"]
+    }
+  },
   "files": ["dist"],
+  "sideEffects": [
+    "./dist/styles.css"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./styles.css": "./dist/styles.css"
+    "./styles.css": "./dist/styles.css",
+    "./css": "./dist/styles.css"
   },
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts --clean && cp src/styles.css dist/styles.css",

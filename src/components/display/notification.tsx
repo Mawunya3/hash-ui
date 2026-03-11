@@ -2,7 +2,7 @@ import * as React from "react";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../lib/cn.js";
 
-const notificationVariants = cva(
+const noticeVariants = cva(
   "rounded-2xl border p-4 shadow-sm",
   {
     variants: {
@@ -20,39 +20,39 @@ const notificationVariants = cva(
   }
 );
 
-export interface NotificationProps
+export interface NoticeProps
   extends React.HTMLAttributes<HTMLDivElement>,
-    VariantProps<typeof notificationVariants> {}
+    VariantProps<typeof noticeVariants> {}
 
-export function Notification({
+export function Notice({
   className,
   variant,
   ...props
-}: NotificationProps) {
+}: NoticeProps) {
   return (
     <div
-      className={cn(notificationVariants({ variant }), className)}
+      className={cn(noticeVariants({ variant }), className)}
       role="status"
       {...props}
     />
   );
 }
 
-export function NotificationTitle({
+export function NoticeTitle({
   className,
   ...props
 }: React.HTMLAttributes<HTMLHeadingElement>) {
   return <h4 className={cn("font-semibold", className)} {...props} />;
 }
 
-export function NotificationDescription({
+export function NoticeDescription({
   className,
   ...props
 }: React.HTMLAttributes<HTMLParagraphElement>) {
   return <p className={cn("mt-1 text-sm opacity-90", className)} {...props} />;
 }
 
-export function NotificationActions({
+export function NoticeActions({
   className,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {

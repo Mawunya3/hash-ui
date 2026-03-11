@@ -12,6 +12,19 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, Var
 }
 declare function Button({ className, variant, size, ...props }: ButtonProps): react_jsx_runtime.JSX.Element;
 
+interface ButtonGroupProps extends React.HTMLAttributes<HTMLDivElement> {
+    orientation?: "horizontal" | "vertical";
+}
+declare function ButtonGroup({ className, orientation, ...props }: ButtonGroupProps): react_jsx_runtime.JSX.Element;
+
+declare const iconButtonVariants: (props?: ({
+    variant?: "primary" | "secondary" | "outline" | "ghost" | null | undefined;
+    size?: "sm" | "md" | "lg" | null | undefined;
+} & class_variance_authority_types.ClassProp) | undefined) => string;
+interface IconButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, VariantProps<typeof iconButtonVariants> {
+}
+declare function IconButton({ className, variant, size, ...props }: IconButtonProps): react_jsx_runtime.JSX.Element;
+
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 }
 declare const Input: React.ForwardRefExoticComponent<InputProps & React.RefAttributes<HTMLInputElement>>;
@@ -47,6 +60,7 @@ interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
     fallback?: string;
 }
 declare function Avatar({ className, src, alt, fallback, ...props }: AvatarProps): react_jsx_runtime.JSX.Element;
+declare function AvatarFallback({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>): react_jsx_runtime.JSX.Element;
 declare function AvatarGroup({ className, ...props }: React.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
 
 declare const badgeVariants: (props?: ({
@@ -67,6 +81,25 @@ declare function EmptyState({ className, ...props }: React.HTMLAttributes<HTMLDi
 declare function EmptyStateTitle({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>): react_jsx_runtime.JSX.Element;
 declare function EmptyStateDescription({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>): react_jsx_runtime.JSX.Element;
 declare function EmptyStateActions({ className, ...props }: React.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
+
+declare const noticeVariants: (props?: ({
+    variant?: "default" | "success" | "warning" | "danger" | "info" | null | undefined;
+} & class_variance_authority_types.ClassProp) | undefined) => string;
+interface NoticeProps extends React.HTMLAttributes<HTMLDivElement>, VariantProps<typeof noticeVariants> {
+}
+declare function Notice({ className, variant, ...props }: NoticeProps): react_jsx_runtime.JSX.Element;
+declare function NoticeTitle({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>): react_jsx_runtime.JSX.Element;
+declare function NoticeDescription({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>): react_jsx_runtime.JSX.Element;
+declare function NoticeActions({ className, ...props }: React.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
+
+interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
+}
+declare function Skeleton({ className, ...props }: SkeletonProps): react_jsx_runtime.JSX.Element;
+
+interface SpinnerProps extends React.HTMLAttributes<HTMLDivElement> {
+    size?: "sm" | "md" | "lg";
+}
+declare function Spinner({ className, size, ...props }: SpinnerProps): react_jsx_runtime.JSX.Element;
 
 declare function Stat({ className, ...props }: React.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
 declare function StatLabel({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>): react_jsx_runtime.JSX.Element;
@@ -110,17 +143,44 @@ type StackProps = React.HTMLAttributes<HTMLDivElement> & {
 };
 declare function Stack({ className, direction, gap, ...props }: StackProps): react_jsx_runtime.JSX.Element;
 
+declare function Accordion({ className, ...props }: React.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
+interface AccordionItemProps extends React.HTMLAttributes<HTMLDivElement> {
+    open?: boolean;
+}
+declare function AccordionItem({ className, ...props }: AccordionItemProps): react_jsx_runtime.JSX.Element;
+declare function AccordionTrigger({ className, ...props }: React.ButtonHTMLAttributes<HTMLButtonElement>): react_jsx_runtime.JSX.Element;
+interface AccordionContentProps extends React.HTMLAttributes<HTMLDivElement> {
+    open?: boolean;
+}
+declare function AccordionContent({ className, open, ...props }: AccordionContentProps): react_jsx_runtime.JSX.Element | null;
+
 declare function Breadcrumb({ className, ...props }: React.HTMLAttributes<HTMLElement>): react_jsx_runtime.JSX.Element;
 declare function BreadcrumbList({ className, ...props }: React.OlHTMLAttributes<HTMLOListElement>): react_jsx_runtime.JSX.Element;
 declare function BreadcrumbItem({ className, ...props }: React.LiHTMLAttributes<HTMLLIElement>): react_jsx_runtime.JSX.Element;
 declare function BreadcrumbSeparator({ className, children, ...props }: React.HTMLAttributes<HTMLSpanElement>): react_jsx_runtime.JSX.Element;
 declare function BreadcrumbPage({ className, ...props }: React.HTMLAttributes<HTMLSpanElement>): react_jsx_runtime.JSX.Element;
 
+interface CommandPaletteProps extends React.HTMLAttributes<HTMLDivElement> {
+    open?: boolean;
+}
+declare function CommandPalette({ className, open, ...props }: CommandPaletteProps): react_jsx_runtime.JSX.Element | null;
+declare function CommandPaletteInput({ className, ...props }: React.InputHTMLAttributes<HTMLInputElement>): react_jsx_runtime.JSX.Element;
+declare function CommandPaletteList({ className, ...props }: React.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
+declare function CommandPaletteGroup({ className, ...props }: React.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
+declare function CommandPaletteGroupLabel({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>): react_jsx_runtime.JSX.Element;
+declare function CommandPaletteItem({ className, ...props }: React.ButtonHTMLAttributes<HTMLButtonElement>): react_jsx_runtime.JSX.Element;
+declare function CommandPaletteEmpty({ className, ...props }: React.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
+
 declare function Header({ className, ...props }: React.HTMLAttributes<HTMLElement>): react_jsx_runtime.JSX.Element;
 declare function HeaderInner({ className, ...props }: React.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
 declare function HeaderBrand({ className, ...props }: React.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
 declare function HeaderNav({ className, ...props }: React.HTMLAttributes<HTMLElement>): react_jsx_runtime.JSX.Element;
 declare function HeaderActions({ className, ...props }: React.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
+
+declare function Navbar({ className, ...props }: React.HTMLAttributes<HTMLElement>): react_jsx_runtime.JSX.Element;
+declare function NavbarBrand({ className, ...props }: React.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
+declare function NavbarNav({ className, ...props }: React.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
+declare function NavbarActions({ className, ...props }: React.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
 
 declare function Pagination({ className, ...props }: React.HTMLAttributes<HTMLElement>): react_jsx_runtime.JSX.Element;
 declare function PaginationList({ className, ...props }: React.HTMLAttributes<HTMLUListElement>): react_jsx_runtime.JSX.Element;
@@ -129,6 +189,14 @@ interface PaginationLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorEleme
     isActive?: boolean;
 }
 declare function PaginationLink({ className, isActive, ...props }: PaginationLinkProps): react_jsx_runtime.JSX.Element;
+
+declare function Sidebar({ className, ...props }: React.HTMLAttributes<HTMLElement>): react_jsx_runtime.JSX.Element;
+declare function SidebarHeader({ className, ...props }: React.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
+declare function SidebarContent({ className, ...props }: React.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
+declare function SidebarFooter({ className, ...props }: React.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
+declare function SidebarGroup({ className, ...props }: React.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
+declare function SidebarGroupLabel({ className, ...props }: React.HTMLAttributes<HTMLParagraphElement>): react_jsx_runtime.JSX.Element;
+declare function SidebarItem({ className, ...props }: React.AnchorHTMLAttributes<HTMLAnchorElement>): react_jsx_runtime.JSX.Element;
 
 declare function Tabs({ className, ...props }: React.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
 declare function TabsList({ className, ...props }: React.HTMLAttributes<HTMLDivElement>): react_jsx_runtime.JSX.Element;
@@ -179,4 +247,4 @@ declare function HeroActions({ className, ...props }: React.HTMLAttributes<HTMLD
 
 declare function cn(...inputs: ClassValue[]): string;
 
-export { Alert, AlertDescription, type AlertProps, AlertTitle, Avatar, AvatarGroup, type AvatarProps, Badge, type BadgeProps, Box, Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, type ButtonProps, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Container, Divider, type DividerProps, Drawer, type DrawerProps, Dropdown, DropdownItem, DropdownMenu, EmptyState, EmptyStateActions, EmptyStateDescription, EmptyStateTitle, Grid, type GridProps, Header, HeaderActions, HeaderBrand, HeaderInner, HeaderNav, Hero, HeroActions, HeroBadge, HeroContent, HeroDescription, HeroTitle, Input, type InputProps, Label, type LabelProps, Modal, ModalContent, ModalDescription, ModalFooter, ModalHeader, type ModalProps, ModalTitle, Pagination, PaginationItem, PaginationLink, type PaginationLinkProps, PaginationList, Section, SectionDescription, SectionHeader, type SectionProps, SectionTitle, Select, type SelectProps, Stack, Stat, StatChange, StatLabel, StatValue, Switch, type SwitchProps, Tabs, TabsContent, TabsList, TabsTrigger, type TabsTriggerProps, Textarea, type TextareaProps, Toast, ToastDescription, type ToastProps, ToastTitle, ToastViewport, Tooltip, cn };
+export { Accordion, AccordionContent, type AccordionContentProps, AccordionItem, type AccordionItemProps, AccordionTrigger, Alert, AlertDescription, type AlertProps, AlertTitle, Avatar, AvatarFallback, AvatarGroup, type AvatarProps, Badge, type BadgeProps, Box, Breadcrumb, BreadcrumbItem, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator, Button, ButtonGroup, type ButtonGroupProps, type ButtonProps, Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, CommandPalette, CommandPaletteEmpty, CommandPaletteGroup, CommandPaletteGroupLabel, CommandPaletteInput, CommandPaletteItem, CommandPaletteList, type CommandPaletteProps, Container, Divider, type DividerProps, Drawer, type DrawerProps, Dropdown, DropdownItem, DropdownMenu, EmptyState, EmptyStateActions, EmptyStateDescription, EmptyStateTitle, Grid, type GridProps, Header, HeaderActions, HeaderBrand, HeaderInner, HeaderNav, Hero, HeroActions, HeroBadge, HeroContent, HeroDescription, HeroTitle, IconButton, type IconButtonProps, Input, type InputProps, Label, type LabelProps, Modal, ModalContent, ModalDescription, ModalFooter, ModalHeader, type ModalProps, ModalTitle, Navbar, NavbarActions, NavbarBrand, NavbarNav, Notice, NoticeActions, NoticeDescription, type NoticeProps, NoticeTitle, Pagination, PaginationItem, PaginationLink, type PaginationLinkProps, PaginationList, Section, SectionDescription, SectionHeader, type SectionProps, SectionTitle, Select, type SelectProps, Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupLabel, SidebarHeader, SidebarItem, Skeleton, type SkeletonProps, Spinner, type SpinnerProps, Stack, Stat, StatChange, StatLabel, StatValue, Switch, type SwitchProps, Tabs, TabsContent, TabsList, TabsTrigger, type TabsTriggerProps, Textarea, type TextareaProps, Toast, ToastDescription, type ToastProps, ToastTitle, ToastViewport, Tooltip, cn };
